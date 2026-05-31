@@ -1,0 +1,127 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{geometry}
+\pagestyle{empty}
+\geometry{margin=0.4in} % Reduced margins to save space
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=blue]{hyperref}
+\renewcommand{\baselinestretch}{1} % Slightly reduced line spacing
+
+% Colors
+\definecolor{primary}{HTML}{2E86C1}
+\definecolor{secondary}{HTML}{555555}
+
+% Font
+\renewcommand{\familydefault}{\sfdefault}
+% Section styling
+
+
+
+\titleformat{\section}{\large\scshape\color{primary}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{secondary}}{}{0em}{}{}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge\bfseries Subhojit Paul} \\
+    \faMapMarker \ Hyderabad, India \ \ |
+    \faEnvelope \ \href{mailto:subhojit.paul@servicenow.com}{subhojit.paul@servicenow.com} \ \ |
+    \faPhone \ +91 8100517912 \ | \ \faLinkedin \ \href{https://linkedin.com/in/subhojitpaul07}{subhojitpaul07}
+\end{center}
+\vspace{-1em} % Reduced vertical space after header
+
+% Summary
+% \section*{Summary}
+% Results-driven backend developer with\textbf{ 1 year} of experience in designing scalable microservices, implementing secure authentication systems, and optimizing server processes. Proficient in Java, C++, and modern frameworks like NestJS, with a proven track record of delivering impactful solutions. Strong academic foundation from\textbf{ IIT (BHU)} and a commitment to leveraging technology for innovative development.
+
+\section*{Work Experience}
+% \textbf{ServiceNow} \hfill Oct 2025 -- Present \\
+% \textit{Software Engineer | Hyderabad, India}
+% \begin{itemize}[noitemsep,topsep=0pt]
+%     \item Built a Product \& Skill Feedback System adopted across the customer base, delivering the end-to-end solution within 3 sprints and integrating it into core platform workflows.
+%     \item Designed normalized, interconnected data models to capture product and skill-deactivation feedback, enabling detailed usage insights and reliable analytics.
+%     \item Implemented backend logic for processing and persisting feedback data, improving data accuracy and supporting informed product decisions.
+    % \item Enabled product teams to identify top customer pain points and skill-level usage trends, directly influencing roadmap prioritization and quality improvements.
+% \end{itemize}
+\textbf{ServiceNow} \hfill July 2024 -- Present \\
+\textit{Software Quality Engineer | Hyderabad, India}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Developing full-stack features for an enterprise AI platform, building reusable frontend components and server-side logic for configuration and administration workflows used by customers globally.
+    \item Architected and implemented an archive/restore system for platform configurations, designing database-backed utility functions, API wrappers, transform layers, and event handlers that manage full life-cycle state transitions.
+    \item Built a dynamic dashboard component for AI safety guardrails, displaying real-time status indicators and aggregate health metrics with configurable filter states.
+    \item Implemented modular data transform and utility layers with clean API boundaries, enabling consistent state management across configuration records and reducing code duplication across feature modules.
+\end{itemize}
+\textbf{Samsung Research Institute} \hfill May 2023 -- July 2023 \\
+\textit{Software Engineer Intern | Bangalore, India}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Implemented a Bluetooth source classifier using Random Forest and KNN, achieving 83\% accuracy.
+    \item Developed Python modules for preprocessing and model evaluation reduced false positives by 81\% through custom validation scripts.
+\end{itemize}
+
+% Education
+\vspace{-1em}
+\section*{Education}
+\textbf{Indian Institute of Technology (BHU), Varanasi} \hfill May 2024 \\
+\textit{Master of Technology (M.Tech) in Computer Science Engineering} \hfill CGPA: 8.29\\
+Advanced Algorithms, Distributed Computing, Cloud Computing, Data Mining.\\
+\textbf{Techno India, Kolkata} \hfill June 2020 \\
+\textit{Bachelor of Technology (B.Tech) in Electronics and Communication Engineering} \hfill CGPA: 7.98\\
+
+\vspace{-1em}
+% Technical Skills
+\section*{Technical Skills}
+    \begin{itemize}[noitemsep,topsep=0pt]
+        \item\textbf{Programming:} C/C++, Java, JavaScript, Python
+        \item \textbf{Framework:} Node.js, REST APIs, OOP Principles, Selenium, Spring Boot
+        \item \textbf{Databases:} MongoDB, SQL, NoSQL
+        \item \textbf{Developer Tools:} Git, IntelliJ, Visual Studio, Jenkins, Postman, Docker
+    \end{itemize}
+% Professional Experience
+
+\vspace{-1em}
+
+\section*{Projects}
+% \textbf{Enhanced Self-Designing Range Filter} \hfill Jan 2023 -- May 2024 \\
+% \textit{M.Tech Research | IIT (BHU)}
+% \begin{itemize}[noitemsep,topsep=0pt]
+%     \item Created a self-adapting range filter with Trie and Bloom Filters, improving query accuracy by 16x.
+%     \item Designed an optimized false-positive model, reducing error rates by a factor of 16.
+%      \item \textbf{Exposure:}Indexing in Databases, Membership algorithms, Bloom filters, Hashing, Database Design and Models, C++, handling \textbf{1 Cr+ database entries}.
+% \end{itemize}\\
+\textbf{VidTube | NodeJs, Express, MongoDB(Self-Project)} \hfill Jan 2025 - Feb 2025 \\
+\textit{YouTube-inspired Video Sharing Platform}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Built a robust backend for a YouTube-inspired video sharing app, including RESTful API development, JWT authentication, and secure media storage integration.
+    \item Implemented a modular backend architecture (MVC), reducing onboarding time for new developers by 30\% and improving maintainability.
+    \item Defined comprehensive MongoDB schemas for complex user interactions (comments, likes, subscriptions), supporting up to 1000 concurrent users with <300ms average API response time.
+\end{itemize}
+\vspace{0.05 cm}
+\textbf{Hyperspectral Image Classification Using Deep Learning Techniques} \hfill Sep 2023 - Feb 2024 \\
+\textit{(Prof. Rajeev Srivastava, IIT BHU)}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Substituted Vision Transformer with RetNet, leading to a model that achieved 98\% classification accuracy using only 10\% of training data—a 20\% efficiency increase over the baseline.
+    \item Deployed GPU-optimized backend for large-scale image processing tasks, leading to 40\% faster throughput with minimal resources.
+\end{itemize}
+\vspace{0.05 cm}
+\textbf{Unmanned Aerial Vehicle} \hfill July 2017 - May 2020 \\
+\textit{(Prof. A.K. Sarkar, Techno India)}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Led the end-to-end design and development of a UAV for indoor and outdoor surveillance, enabling coverage of areas up to 5000 sq. meters per flight.
+    % \item Implemented object detection and tracking algorithms on onboard Raspberry Pi, achieving >90\% detection accuracy across various scenarios.
+    % \item Developed Python scripts for sensor data acquisition, signal processing, and control logic, reducing processing latency by 40\%.
+\end{itemize}
+
+% Achievements
+\vspace{-1em}
+\section*{Achievements}
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Achieved a \textbf{top 0.6\%} national ranking (Rank 494 out of 77,000+) in GATE-2022, demonstrating strong analytical and problem-solving abilities.
+    \item Published \textbf{2 research paper} on Hyperspectral Image Classification in leading journals in computer vision and pattern recognition.
+    \item Honored with the \textbf{Best Intern Award} at Samsung for developing the bluetooth source classifier with 83\% accuracy.
+\end{itemize}
+
+\end{document}

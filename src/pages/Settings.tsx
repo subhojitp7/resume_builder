@@ -1,0 +1,57 @@
+import React from 'react';
+import { useSettingsStore } from '../store/useSettingsStore';
+
+const Settings: React.FC = () => {
+  const { 
+    openAiKey, geminiKey, claudeKey, 
+    setOpenAiKey, setGeminiKey, setClaudeKey 
+  } = useSettingsStore();
+
+  return (
+    <div>
+      <h1 className="text-gradient" style={{ marginBottom: '1.5rem' }}>Settings</h1>
+      
+      <div className="glass-panel" style={{ padding: '2rem', maxWidth: '600px' }}>
+        <h3 style={{ marginBottom: '1.5rem' }}>AI Model Configurations</h3>
+        <p className="text-muted" style={{ marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+          Provide your API keys to enable the Multi-Model AI Engine. Keys are stored safely in your browser's local storage.
+        </p>
+
+        <div className="input-group">
+          <label className="input-label">OpenAI API Key</label>
+          <input 
+            type="password" 
+            className="input-field" 
+            placeholder="sk-..." 
+            value={openAiKey}
+            onChange={(e) => setOpenAiKey(e.target.value)}
+          />
+        </div>
+
+        <div className="input-group">
+          <label className="input-label">Google Gemini API Key</label>
+          <input 
+            type="password" 
+            className="input-field" 
+            placeholder="AIza..." 
+            value={geminiKey}
+            onChange={(e) => setGeminiKey(e.target.value)}
+          />
+        </div>
+
+        <div className="input-group">
+          <label className="input-label">Anthropic Claude API Key</label>
+          <input 
+            type="password" 
+            className="input-field" 
+            placeholder="sk-ant-..." 
+            value={claudeKey}
+            onChange={(e) => setClaudeKey(e.target.value)}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Settings;
