@@ -12,6 +12,26 @@ export interface AIFile {
   data: string; // base64 string
 }
 
+const fetchWithRetry = async (url: string, options: RequestInit, retries = 3, delay = 1500): Promise<Response> => {
+  try {
+    const res = await fetch(url, options);
+    // Retry on 503 Service Unavailable / High Demand or 429 Too Many Requests
+    if ((res.status === 503 || res.status === 429) && retries > 0) {
+      console.warn(`Gemini API returned ${res.status}. Retrying in ${delay}ms... (${retries} retries left)`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+      return fetchWithRetry(url, options, retries - 1, delay * 2);
+    }
+    return res;
+  } catch (err) {
+    if (retries > 0) {
+      console.warn(`Fetch error occurred. Retrying in ${delay}ms... (${retries} retries left)`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+      return fetchWithRetry(url, options, retries - 1, delay * 2);
+    }
+    throw err;
+  }
+};
+
 export const generateCompletion = async (
   prompt: string, 
   provider: ModelProvider = 'openai', 
@@ -45,7 +65,7 @@ export const generateCompletion = async (
     }
 
     if (provider === 'gemini') {
-      if (!geminiKey) throw new Error('Gemini API Key is missing');
+      if (!geminiKey) throw new Error('Google Gemini API Key is missing');
 
       const parts: any[] = [{ text: prompt }];
       if (file) {
@@ -58,7 +78,7 @@ export const generateCompletion = async (
       }
 
       // Using Gemini 3.5 Flash
-      const response = await fetch(`/api/gemini/v1beta/models/gemini-3.5-flash:generateContent?key=${geminiKey}`, {
+      const response = await fetchWithRetry(`/api/gemini/v1beta/models/gemini-3.5-flash:generateContent?key=${geminiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
