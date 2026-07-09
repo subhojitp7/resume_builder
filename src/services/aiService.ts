@@ -38,7 +38,7 @@ export const generateCompletion = async (
   systemPrompt?: string,
   file?: AIFile
 ): Promise<AIResponse> => {
-  const { openAiKey, geminiKey, claudeKey } = useSettingsStore.getState();
+  const { openAiKey, geminiKey, claudeKey, geminiModel } = useSettingsStore.getState();
 
   // Define fallback order based on initial preference
   const order: ModelProvider[] = [];
@@ -90,8 +90,8 @@ export const generateCompletion = async (
           });
         }
 
-        // Using Gemini 3.5 Flash with retry
-        const response = await fetchWithRetry(`/api/gemini/v1beta/models/gemini-3.5-flash:generateContent?key=${geminiKey}`, {
+        // Using dynamic Gemini Model with retry
+        const response = await fetchWithRetry(`/api/gemini/v1beta/models/${geminiModel || 'gemini-3.5-flash'}:generateContent?key=${geminiKey}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

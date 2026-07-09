@@ -3,8 +3,8 @@ import { useSettingsStore } from '../store/useSettingsStore';
 
 const Settings: React.FC = () => {
   const { 
-    openAiKey, geminiKey, claudeKey, 
-    setOpenAiKey, setGeminiKey, setClaudeKey 
+    openAiKey, geminiKey, claudeKey, geminiModel,
+    setOpenAiKey, setGeminiKey, setClaudeKey, setGeminiModel
   } = useSettingsStore();
 
   return (
@@ -43,6 +43,21 @@ const Settings: React.FC = () => {
             value={geminiKey}
             onChange={(e) => setGeminiKey(e.target.value)}
           />
+        </div>
+
+        <div className="input-group">
+          <label className="input-label" style={{ marginBottom: '0.5rem' }}>Google Gemini Active Model</label>
+          <select 
+            className="input-field" 
+            value={geminiModel} 
+            onChange={(e) => setGeminiModel(e.target.value)}
+            style={{ width: '100%', background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}
+          >
+            <option value="gemini-3.5-flash">Gemini 3.5 Flash (Recommended)</option>
+            <option value="antigravity-preview-05-2026">Antigravity Agent Preview (Specialized)</option>
+            <option value="gemini-3.1-pro-preview">Gemini 3.1 Pro Preview</option>
+            <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+          </select>
         </div>
 
         <div className="input-group">
