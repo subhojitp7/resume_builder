@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { useProfileStore, useJournalStore } from '../store/useDataStore';
+import { useProfileStore, useJournalStore, useJobMatchStore } from '../store/useDataStore';
 import { scoreATS, recommendChanges } from '../services/resumeAgents';
 
 const JobMatch: React.FC = () => {
-  const [jobInput, setJobInput] = useState('');
+  const { jobInput, setJobInput, atsResult, setAtsResult, recommendations, setRecommendations, clearResults } = useJobMatchStore();
   const [isProcessing, setIsProcessing] = useState(false);
   
   const { latexCode } = useProfileStore();
   const profileData = useProfileStore();
   const { logs } = useJournalStore();
-  
-  const [atsResult, setAtsResult] = useState<{score: number, missingKeywords: string[], feedback: string[]} | null>(null);
-  const [recommendations, setRecommendations] = useState<{generalAdvice: string, recommendedBullets: {section: string, role: string, bullet: string}[], skillsToAdd: string[]} | null>(null);
 
   const handleExtractFromLink = async () => {
     if (!jobInput.trim() || !jobInput.startsWith('http')) {
@@ -46,8 +43,7 @@ const JobMatch: React.FC = () => {
     }
     
     setIsProcessing(true);
-    setAtsResult(null);
-    setRecommendations(null);
+    clearResults();
     
     try {
       // 1. Get ATS Score

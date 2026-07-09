@@ -57,8 +57,8 @@ export const generateCompletion = async (
         });
       }
 
-      // Using Gemini 2.5 Flash
-      const response = await fetch(`/api/gemini/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`, {
+      // Using Gemini 3.5 Flash
+      const response = await fetch(`/api/gemini/v1beta/models/gemini-3.5-flash:generateContent?key=${geminiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

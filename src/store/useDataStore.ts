@@ -106,3 +106,30 @@ export const useJournalStore = create<JournalState>()(
     }
   )
 );
+
+export interface JobMatchState {
+  jobInput: string;
+  atsResult: {score: number, missingKeywords: string[], feedback: string[]} | null;
+  recommendations: {generalAdvice: string, recommendedBullets: {section: string, role: string, bullet: string}[], skillsToAdd: string[]} | null;
+  setJobInput: (input: string) => void;
+  setAtsResult: (result: any) => void;
+  setRecommendations: (recs: any) => void;
+  clearResults: () => void;
+}
+
+export const useJobMatchStore = create<JobMatchState>()(
+  persist(
+    (set) => ({
+      jobInput: '',
+      atsResult: null,
+      recommendations: null,
+      setJobInput: (input) => set({ jobInput: input }),
+      setAtsResult: (result) => set({ atsResult: result }),
+      setRecommendations: (recs) => set({ recommendations: recs }),
+      clearResults: () => set({ atsResult: null, recommendations: null }),
+    }),
+    {
+      name: 'resume-ai-jobmatch',
+    }
+  )
+);
