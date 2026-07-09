@@ -18,7 +18,10 @@ const Settings: React.FC = () => {
         </p>
 
         <div className="input-group">
-          <label className="input-label">OpenAI API Key</label>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label className="input-label" style={{ margin: 0 }}>OpenAI API Key</label>
+            <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.8rem', color: 'var(--primary)', textDecoration: 'none' }}>Get Key ↗</a>
+          </div>
           <input 
             type="password" 
             className="input-field" 
@@ -29,7 +32,10 @@ const Settings: React.FC = () => {
         </div>
 
         <div className="input-group">
-          <label className="input-label">Google Gemini API Key</label>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label className="input-label" style={{ margin: 0 }}>Google Gemini API Key</label>
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.8rem', color: 'var(--primary)', textDecoration: 'none' }}>Get Key ↗</a>
+          </div>
           <input 
             type="password" 
             className="input-field" 
@@ -40,7 +46,10 @@ const Settings: React.FC = () => {
         </div>
 
         <div className="input-group">
-          <label className="input-label">Anthropic Claude API Key</label>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label className="input-label" style={{ margin: 0 }}>Anthropic Claude API Key</label>
+            <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.8rem', color: 'var(--primary)', textDecoration: 'none' }}>Get Key ↗</a>
+          </div>
           <input 
             type="password" 
             className="input-field" 
